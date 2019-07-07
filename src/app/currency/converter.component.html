@@ -1,0 +1,52 @@
+<div class="currency">
+    <form [formGroup]="rateForm" novalidate class="form-border">
+        <div class="main-container">
+            <p><b>Currency Converter</b></p>
+            <div class="content-row">
+                <div class="item-cell">
+                    <p><b>Type in amount and select currency:</b></p>
+                </div>
+            </div>
+            <div class="content-row">
+                <div class="item-cell currency-number">
+                    <input type="text" class="input-text" placeholder="0.00" formControlName="fromValue" (blur)="exchangeRage(rateForm.valid)" />
+                    <div class="errors" *ngIf="rateForm.controls.fromValue.errors">
+                        <span *ngIf="rateForm.controls.fromValue.errors?.required">
+                            This is required field.
+                        </span>
+                        <span *ngIf="rateForm.controls.fromValue.errors?.invalidNumber">
+                            Number must greater than zero / format 1 or 1.23.
+                        </span>
+                    </div>
+                </div>
+                <div class="item-cell">
+                    <select class="select-item" formControlName="fromName" [(ngModel)]="rate.fromName" (change)="exchangeRage(rateForm.valid)">
+                        <option *ngFor="let name of symbols" [ngValue]="name">{{name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="content-row">
+                <div class="item-cell">
+                    <p><b>Converted Amount:</b></p>
+                </div>
+            </div>
+            <div class="content-row">
+                <div class="item-cell">
+                    <input type="text" class="input-text" placeholder="0.00" formControlName="toValue" [(ngModel)]="rate.toValue" readonly />
+                </div>
+                <div class="item-cell">
+                    <select class="select-item" formControlName="toName" [(ngModel)]="rate.toName" (change)="exchangeRage(rateForm.valid)">
+                        <option *ngFor="let name of symbols" [ngValue]="name">{{name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="content-row">
+                <div class="item-cell"><p></p></div>
+                <div class="item-cell link">
+                    <!-- <a href="https://exchangeratesapi.io/" class="link disclaimer">Disclaimer</a> -->
+                    <a href="https://en.wikipedia.org/wiki/Exchange_rate" class="link disclaimer">Disclaimer</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

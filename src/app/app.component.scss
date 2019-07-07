@@ -1,0 +1,12 @@
+@import 'styles/variables';
+@import 'styles/globals';
+
+.app {
+  padding: 1em;
+  font-family: $fontfamily;
+  display: flex;
+  flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+//	height: 100vh;
+}
