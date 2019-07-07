@@ -81,9 +81,6 @@ export class CurrencyConverter implements OnInit {
   * Handle simple calculation rate value and update 'rate' model
   * Note: the return value will round up with toFixed method and will need
   * to modify up on rules
-  * @param {number} fromValue - value number to convert to
-  * @param {string} toName - the base currency name which need to convert to 
-  * @param {string} toName - the converted currency name
   */
   calculateRate(fromValue: number, toName: string, resultRate: any) {
     let d: any = resultRate.rates;
